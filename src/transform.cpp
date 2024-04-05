@@ -43,6 +43,7 @@ void TransformData::loadParam(){
     rot = rot * M_PI / 180;
 
 }
+// TODO: Extend to beyond imu
 void TransformData::transformToBaseLink(const sensor_msgs::Imu::ConstPtr &imu_msg){
     // get rot mat from rpy
     Eigen::Quaterniond q_rot = Eigen::AngleAxisd(rot[2], Eigen::Vector3d::UnitZ()) *
@@ -52,7 +53,7 @@ void TransformData::transformToBaseLink(const sensor_msgs::Imu::ConstPtr &imu_ms
     Eigen::Matrix3d rotation_matrix = q_rot.toRotationMatrix();
 
     Eigen::Vector3d angular_velocity, linear_acceleration;
-    double gravity = -9.81;
+    double gravity = -9.80665;
     if (unit_in_g)
     {
         linear_acceleration = Eigen::Vector3d(imu_msg->linear_acceleration.x * gravity, imu_msg->linear_acceleration.y * gravity, imu_msg->linear_acceleration.z * gravity);
@@ -81,6 +82,7 @@ void TransformData::transformToBaseLink(const sensor_msgs::Imu::ConstPtr &imu_ms
     orientation.normalize();
 
     // pub msg
+    // TODO: use ros timer to publish at fixed rate
     sensor_msgs::Imu transformed_imu_msg;
     transformed_imu_msg.header.frame_id = new_frame_id;
     transformed_imu_msg.header.seq = imu_msg->header.seq;
