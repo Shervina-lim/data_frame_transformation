@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>transform_imu_data</name>
+  <name>data_frame_transformation</name>
   <version>0.0.0</version>
-  <description>The transform_imu_data package</description>
+  <description>The data_frame_transformation package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
