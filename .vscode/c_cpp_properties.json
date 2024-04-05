@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/root/livox_ws/devel/include/**",
+        "/root/lio/point_lio_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/root/livox_ws/src/direct_lidar_odometry/include/**",
+        "/root/livox_ws/src/Point-LIO/include/**",
+        "/root/livox_ws/src/transform_imu_data/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

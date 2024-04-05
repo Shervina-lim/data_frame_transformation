@@ -1,0 +1,6 @@
+imu_topic: "/livox/imu_192_168_1_122"
+new_topic: "/base_imu"
+new_frame_id: imu_link
+unit_in_g: true
+extrinsic_T: [0,0,0] # in xyz, units m
+extrinsic_R: [0, 90, 0] # in rpy, units deg

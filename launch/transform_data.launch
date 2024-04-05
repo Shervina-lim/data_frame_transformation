@@ -1,0 +1,16 @@
+<launch>
+    <arg name="config_file" default="config.yaml"/>
+    <arg name="pub_tf" default="true"/>
+    
+    <group ns="transform_data">
+        <rosparam file="$(find transform_imu_data)/config/$(arg config_file)"/> 
+        <node pkg="transform_imu_data" type="transform_imu_data_node" name="transform_imu_data_node" output="screen"/>
+    </group>
+    
+    <group if="$(arg pub_tf)">
+        <node pkg="tf2_ros" type="static_transform_publisher" name="livox_frame_to_base"
+            args="0 0 0 0 0 0 base livox_frame"/>
+        <node pkg="tf2_ros" type="static_transform_publisher" name="new_imu_frame_to_base"
+            args="0 0 0 0 0 0 base imu_link"/>
+    </group>
+</launch>
